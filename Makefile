@@ -1,3 +1,4 @@
+EXTRA_CFLAGS += $(USER_EXTRA_CFLAGS)
 EXTRA_CFLAGS += -O1
 #EXTRA_CFLAGS += -O3
 #EXTRA_CFLAGS += -Wall
@@ -44,8 +45,8 @@ CONFIG_USB_HCI = n
 CONFIG_SDIO_HCI = y
 CONFIG_GSPI_HCI = n
 ########################## Features ###########################
-CONFIG_MP_INCLUDED = n
-CONFIG_POWER_SAVING = y
+CONFIG_MP_INCLUDED = y
+CONFIG_POWER_SAVING = n
 CONFIG_USB_AUTOSUSPEND = n
 CONFIG_HW_PWRP_DETECTION = n
 CONFIG_WIFI_TEST = n
@@ -123,7 +124,7 @@ CONFIG_PLATFORM_DMP_PHILIPS = n
 CONFIG_PLATFORM_MSTAR_TITANIA12 = n
 CONFIG_PLATFORM_MSTAR = n
 CONFIG_PLATFORM_SZEBOOK = n
-CONFIG_PLATFORM_ARM_SUNxI = y
+CONFIG_PLATFORM_ARM_SUNxI = n
 CONFIG_PLATFORM_ARM_SUN6I = n
 CONFIG_PLATFORM_ARM_SUN7I = n
 CONFIG_PLATFORM_ARM_SUN8I_W3P1 = n
@@ -149,7 +150,7 @@ CONFIG_DRVEXT_MODULE = n
 SUBARCH := $(shell uname -m | sed -e "s/i.86/i386/; s/ppc.*/powerpc/; s/armv.l/arm/; s/aarch64/arm64/; s/riscv../riscv/;")
 ARCH ?= $(SUBARCH)
 
-export TopDIR ?= $(shell pwd)
+export TopDIR ?= $(src)
 
 ########### COMMON  #################################
 ifeq ($(CONFIG_GSPI_HCI), y)
